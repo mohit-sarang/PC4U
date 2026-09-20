@@ -9,6 +9,8 @@ import Layout from './components/Layout.jsx';
 import BuildSpace from './pages/BuildSpace.jsx';
 import SelectionPage from './pages/SelectionPage.jsx';
 
+import ProductDetailsPage from './pages/ProductDetailsPage';
+
 export default function App() {
   const [build, setBuild] = useState({});
   
@@ -22,6 +24,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<BuildSpace build={build} />} />
           <Route path="/select/:category" element={<SelectionPage setBuild={setBuild} />} />
+          <Route path="/details/:category/:id" element={<ProductDetailsPage setBuild={setBuild} />} />
         </Routes>
       </Layout>
     </BrowserRouter>

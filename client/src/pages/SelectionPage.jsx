@@ -6,45 +6,84 @@ export default function SelectionPage({ setBuild }) {
   const { category } = useParams(); 
   const navigate = useNavigate();
   
-  // NEW: State variables to handle the network request
+  // State variables to handle the network request
   const [components, setComponents] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  
+  const [sortOrder, setSortOrder] = useState('asc');
   const slotInfo = BUILD_SLOTS.find(s => s.id === category);
 
-  // NEW: The actual bridge to your backend
+  // The actual bridge to your backend
   useEffect(() => {
-    // 1. Set loading to true while we wait for the server
     setIsLoading(true);
     
-    // 2. Fetch the data from your Express backend
     fetch(`http://localhost:5000/api/hardware/${category}`)
       .then(res => res.json())
       .then(data => {
-        setComponents(data); // 3. Save the data to React state
-        setIsLoading(false); // 4. Turn off the loading screen
+        setComponents(data); 
+        setIsLoading(false); 
       })
       .catch(err => {
         console.error("Failed to fetch hardware:", err);
         setIsLoading(false);
       });
-  }, [category]); // This array tells React to re-run this if the URL category changes
+  }, [category]); 
 
   const handleSelect = (item) => {
-    setBuild(prev => ({ ...prev, [category]: item }));
-    navigate('/'); 
+    // Teleport to the details page and pass the item data
+    navigate(`/details/${category}/${item._id}`, { state: { item } }); 
   };
 
-  return (
-    <main className="w-full max-w-7xl mx-auto flex-grow px-4 mt-8">
-      <div className="w-full flex justify-between items-center mb-16 px-4">
-        <button onClick={() => navigate('/')} className="text-micro hover:text-gray-400 transition-colors cursor-pointer flex items-center gap-2 uppercase">
-          <span className="text-lg">←</span> RETURN TO BUILD SPACE
-        </button>
-        <span className="text-2xl font-bold tracking-tighter uppercase">{slotInfo?.name || category}</span>
-      </div>
+  // Toggle function for the button
+  const toggleSort = () => {
+    setSortOrder(prev => prev === 'asc' ? 'desc' : 'asc');
+  };
 
-      {/* NEW: Brutalist Loading State */}
+  // Create a sorted copy of the components array before rendering
+  const sortedComponents = [...components].sort((a, b) => {
+    return sortOrder === 'asc' ? a.price - b.price : b.price - a.price;
+  });
+
+  return (
+    <main className="w-full flex-grow px-8 lg:px-12 mt-8">
+      
+      {/* DIRECTORY BREADCRUMB & CONTROLS STRIP */}
+      <div className="w-full flex flex-col md:flex-row justify-between items-center mb-8 border-b border-brutalGray pb-4 gap-4">
+        
+        {/* Left Side: Heavy Bold Breadcrumb */}
+        <div className="flex items-center gap-3 uppercase tracking-tighter">
+          <button 
+            onClick={() => navigate('/')} 
+            className="text-xl md:text-2xl font-bold text-gray-500 hover:text-brutalWhite transition-colors cursor-pointer"
+          >
+            BUILD SPACE
+          </button>
+          
+          <span className="text-xl md:text-2xl text-gray-700 font-light">/</span>
+          
+          <h1 className="text-xl md:text-2xl font-bold text-brutalWhite leading-none mt-[2px]">
+            {slotInfo?.name || category}
+          </h1>
+        </div>
+
+        {/* Right Side: Centered Typography Controls */}
+        <div className="flex items-center gap-6 shrink-0">
+          <button className="text-sm text-gray-500 hover:text-white transition-colors cursor-pointer uppercase">
+            FILTER
+          </button>
+          
+          <button 
+            onClick={toggleSort}
+            className="text-sm text-gray-500 hover:text-white transition-colors cursor-pointer uppercase flex items-center gap-2"
+          >
+            <span>SORT : PRICE</span>
+            <span className="text-[10px] transform -translate-y-[1px]">
+              {sortOrder === 'asc' ? '▲' : '▼'}
+            </span>
+          </button>
+        </div>
+
+      </div>
+      
       {isLoading ? (
         <div className="w-full flex justify-center mt-32">
           <span className="text-micro text-gray-500 uppercase tracking-widest animate-pulse">
@@ -52,19 +91,41 @@ export default function SelectionPage({ setBuild }) {
           </span>
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-          {components.length > 0 ? components.map((item) => (
+        /* TIGHTER GRID SPACING */
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-x-6 gap-y-10">
+          
+          {sortedComponents.length > 0 ? sortedComponents.map((item) => (
             <div key={item._id} onClick={() => handleSelect(item)} className="flex flex-col group cursor-pointer">
-              <div className="aspect-square w-full border border-dashed border-brutalGray flex items-center justify-center mb-6 group-hover:border-white transition-colors">
-                <span className="text-micro text-gray-700 group-hover:text-gray-400 transition-colors uppercase">TRANSPARENT_RENDER.PNG</span>
+               
+{/* 4:3 IMAGE BOX (SOLID WHITE, NO BORDER, FULL COLOR) */}
+              <div className="aspect-[4/3] w-full flex items-center justify-center relative overflow-hidden bg-white p-4">
+                {item.imageURL ? (
+                  <img 
+                    src={item.imageURL} 
+                    alt={item.name} 
+                    className="w-full h-full object-contain"
+                  />
+                ) : (
+                  <span className="text-xs text-gray-300 group-hover:text-black transition-colors uppercase text-center font-bold">
+                    TRANSPARENT_RENDER.PNG<br/>
+                    <span className="text-[10px]">[ DATA MISSING ]</span>
+                  </span>
+                )}
               </div>
-              <div className="flex justify-between items-center w-full">
-                <span className="text-micro font-bold uppercase">{item.name}</span>
-                <span className="text-micro text-gray-500">₹{item.price.toLocaleString('en-IN')}</span>
+              
+              {/* JUSTIFIED NAME & PRICE ROW */}
+              <div className="flex justify-between items-baseline w-full gap-3 px-1 mt-4">
+                <span className="text-sm font-medium uppercase truncate" title={item.name}>
+                  {item.name}
+                </span>
+                <span className="text-sm text-gray-500 shrink-0">
+                  ₹{item.price.toLocaleString('en-IN')}
+                </span>
               </div>
+              
             </div>
           )) : (
-            <div className="col-span-3 text-center text-gray-500 uppercase mt-32 tracking-widest">
+            <div className="col-span-full text-center text-gray-500 uppercase mt-32 tracking-widest">
               NO {category.toUpperCase()} COMPONENTS FOUND IN SERVER DATABANKS.
             </div>
           )}
