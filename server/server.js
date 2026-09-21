@@ -86,69 +86,69 @@ await RAM.create([
     ]);
     
 await Storage.create([
-      { name: 'T700 2TB GEN5', brand: 'Crucial', price: 28000, imageURL: 'https://m.media-amazon.com/images/I/61tC4+J1VPL.jpg', capacity: '2TB', type: 'NVMe M.2 Gen5' },
-      { name: '990 PRO 4TB', brand: 'Samsung', price: 32000, imageURL: 'https://m.media-amazon.com/images/I/81PjT-8-e3L.jpg', capacity: '4TB', type: 'NVMe M.2 Gen4' },
-      { name: '990 PRO 2TB', brand: 'Samsung', price: 16500, imageURL: 'https://m.media-amazon.com/images/I/81PjT-8-e3L._AC_SL1500_.jpg', capacity: '2TB', type: 'NVMe M.2 Gen4' },
-      { name: 'SN850X 2TB', brand: 'WD Black', price: 15500, imageURL: 'https://m.media-amazon.com/images/I/61r-vEDa07L._AC_SL1500_.jpg', capacity: '2TB', type: 'NVMe M.2 Gen4' },
-      { name: 'KC3000 1TB', brand: 'Kingston', price: 8000, imageURL: 'https://m.media-amazon.com/images/I/71rIe+wBqDL._AC_SL1500_.jpg', capacity: '1TB', type: 'NVMe M.2 Gen4' },
-      { name: '970 EVO PLUS 1TB', brand: 'Samsung', price: 6500, imageURL: 'https://m.media-amazon.com/images/I/81x-sO5JmeL._AC_SL1500_.jpg', capacity: '1TB', type: 'NVMe M.2 Gen3' },
-      { name: 'MX500 2TB', brand: 'Crucial', price: 11000, imageURL: 'https://m.media-amazon.com/images/I/81r1s6ySgwL._AC_SL1500_.jpg', capacity: '2TB', type: 'SATA SSD' },
-      { name: 'BARRACUDA 4TB', brand: 'Seagate', price: 8500, imageURL: 'https://m.media-amazon.com/images/I/719h9mN+2oL._AC_SL1500_.jpg', capacity: '4TB', type: 'HDD 7200RPM' }
+      { name: 'T700 2TB GEN5', brand: 'Crucial', price: 28000, imageURL: 'https://images-eu.ssl-images-amazon.com/images/I/41UOk+pwd3L._AC_UL495_SR435,495_.jpg', capacity: '2TB', type: 'NVMe M.2 Gen5' },
+      { name: '990 PRO 4TB', brand: 'Samsung', price: 32000, imageURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7ceyafzOMTZi0I-hJ_oNLkmYNLeuDKREPRdvDhzBazufxoUTQPSPlrZ4&s=10', capacity: '4TB', type: 'NVMe M.2 Gen4' },
+      { name: '990 PRO 2TB', brand: 'Samsung', price: 16500, imageURL: 'https://m.media-amazon.com/images/I/61D9foQdhDL.jpg', capacity: '2TB', type: 'NVMe M.2 Gen4' },
+      { name: 'SN850X 2TB', brand: 'WD Black', price: 15500, imageURL: 'https://m.media-amazon.com/images/I/61pqcxBopmL.jpg', capacity: '2TB', type: 'NVMe M.2 Gen4' },
+      { name: 'KC3000 1TB', brand: 'Kingston', price: 8000, imageURL: 'https://m.media-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T3/images/I/61b1pY91OlL._SX450_.jpg', capacity: '1TB', type: 'NVMe M.2 Gen4' },
+      { name: '970 EVO PLUS 1TB', brand: 'Samsung', price: 6500, imageURL: 'https://m.media-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T3/images/I/81BIRmPUAgL._SX679_.jpg', capacity: '1TB', type: 'NVMe M.2 Gen3' },
+      { name: 'MX500 2TB', brand: 'Crucial', price: 11000, imageURL: 'https://m.media-amazon.com/images/I/51BZEAbbFDL._AC_UF1000,1000_QL80_.jpg', capacity: '2TB', type: 'SATA SSD' },
+      { name: 'BARRACUDA 4TB', brand: 'Seagate', price: 8500, imageURL: 'https://m.media-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T3/images/I/41kLkk2AcIL._SY300_SX300_QL70_FMwebp_.jpg', capacity: '4TB', type: 'HDD 7200RPM' }
     ]);
 
 // 4. Inject Phase 03: GPU & Power (16 GPUs)
 await GPU.create([
-      { name: 'GEFORCE RTX 4090 FOUNDERS', brand: 'NVIDIA', price: 165000, imageURL: 'https://m.media-amazon.com/images/I/71R2J5F2oQL._AC_SL1500_.jpg', vram: '24GB', length: 304, tdp: 450 },
-      { name: 'ROG STRIX RTX 4090 OC', brand: 'ASUS', price: 185000, imageURL: 'https://m.media-amazon.com/images/I/81LGNtqRtwL._AC_SL1500_.jpg', vram: '24GB', length: 357, tdp: 450 },
-      { name: 'GEFORCE RTX 4080 SUPER', brand: 'NVIDIA', price: 95000, imageURL: 'https://m.media-amazon.com/images/I/81B4BfOEDPL._AC_SL1500_.jpg', vram: '16GB', length: 310, tdp: 320 },
-      { name: 'TUF GAMING RTX 4080 SUPER', brand: 'ASUS', price: 102000, imageURL: 'https://m.media-amazon.com/images/I/8140J2m1-UL._AC_SL1500_.jpg', vram: '16GB', length: 348, tdp: 320 },
-      { name: 'GEFORCE RTX 4070 TI SUPER', brand: 'GIGABYTE', price: 78000, imageURL: 'https://m.media-amazon.com/images/I/71YF9P1vWPL._AC_SL1500_.jpg', vram: '16GB', length: 300, tdp: 285 },
-      { name: 'GEFORCE RTX 4070 SUPER', brand: 'MSI', price: 62000, imageURL: 'https://m.media-amazon.com/images/I/71yG+QZc6LL._AC_SL1500_.jpg', vram: '12GB', length: 267, tdp: 220 },
-      { name: 'GEFORCE RTX 4060 TI', brand: 'ZOTAC', price: 38000, imageURL: 'https://m.media-amazon.com/images/I/71S8-lFDBuL._AC_SL1500_.jpg', vram: '8GB', length: 225, tdp: 160 },
-      { name: 'GEFORCE RTX 4060', brand: 'GIGABYTE', price: 29000, imageURL: 'https://m.media-amazon.com/images/I/71g8R3-L3pL._AC_SL1500_.jpg', vram: '8GB', length: 200, tdp: 115 },
-      { name: 'RADEON RX 7900 XTX NITRO+', brand: 'Sapphire', price: 105000, imageURL: 'https://m.media-amazon.com/images/I/81t3Ym6lHFL._AC_SL1500_.jpg', vram: '24GB', length: 320, tdp: 420 },
-      { name: 'RADEON RX 7900 XTX', brand: 'XFX', price: 98000, imageURL: 'https://m.media-amazon.com/images/I/71nBNYtLZZL._AC_SL1500_.jpg', vram: '24GB', length: 287, tdp: 355 },
-      { name: 'RADEON RX 7900 XT', brand: 'PowerColor', price: 75000, imageURL: 'https://m.media-amazon.com/images/I/71TDUoVqGML._AC_SL1500_.jpg', vram: '20GB', length: 276, tdp: 315 },
-      { name: 'RADEON RX 7900 GRE', brand: 'ASRock', price: 54000, imageURL: 'https://m.media-amazon.com/images/I/81O5eT722YL._AC_SL1500_.jpg', vram: '16GB', length: 269, tdp: 260 },
-      { name: 'RADEON RX 7800 XT', brand: 'Sapphire', price: 49000, imageURL: 'https://m.media-amazon.com/images/I/71D0YnO2S8L._AC_SL1500_.jpg', vram: '16GB', length: 280, tdp: 263 },
-      { name: 'RADEON RX 7700 XT', brand: 'GIGABYTE', price: 42000, imageURL: 'https://m.media-amazon.com/images/I/71vR4s2v0ZL._AC_SL1500_.jpg', vram: '12GB', length: 260, tdp: 245 },
-      { name: 'RADEON RX 7600', brand: 'MSI', price: 26000, imageURL: 'https://m.media-amazon.com/images/I/81P2h0h4lYL._AC_SL1500_.jpg', vram: '8GB', length: 210, tdp: 165 },
-      { name: 'ARC A770', brand: 'Intel', price: 28000, imageURL: 'https://m.media-amazon.com/images/I/71yX7p-mPPL._AC_SL1500_.jpg', vram: '16GB', length: 268, tdp: 225 }
+      { name: 'GEFORCE RTX 4090 FOUNDERS', brand: 'NVIDIA', price: 165000, imageURL: 'https://m.media-amazon.com/images/I/514QPBuqGyL._AC_SX569_.jpg', vram: '24GB', length: 304, tdp: 450 },
+      { name: 'ROG STRIX RTX 4090 OC', brand: 'ASUS', price: 185000, imageURL: 'https://m.media-amazon.com/images/I/71Bi6UsIoIL.jpg', vram: '24GB', length: 357, tdp: 450 },
+      { name: 'GEFORCE RTX 4080 SUPER', brand: 'NVIDIA', price: 95000, imageURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7sFOtf287Lbqc9P4usgDlUfhpKK7OI5x34IbtzaJd7F9GisV9UmL6DMwa&s=10', vram: '16GB', length: 310, tdp: 320 },
+      { name: 'TUF GAMING RTX 4080 SUPER', brand: 'ASUS', price: 102000, imageURL: 'https://m.media-amazon.com/images/I/81rCZZvkIVL.jpg', vram: '16GB', length: 348, tdp: 320 },
+      { name: 'GEFORCE RTX 4070 TI SUPER', brand: 'GIGABYTE', price: 78000, imageURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv8ECK0iilGxKRXBBxKYU6oIjJ-_1fJYI_MqLc2-2XMg&s=10', vram: '16GB', length: 300, tdp: 285 },
+      { name: 'GEFORCE RTX 4070 SUPER', brand: 'MSI', price: 62000, imageURL: 'https://m.media-amazon.com/images/I/512T3hTT5ZL.jpg', vram: '12GB', length: 267, tdp: 220 },
+      { name: 'GEFORCE RTX 4060 TI', brand: 'ZOTAC', price: 38000, imageURL: 'https://m.media-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T3/images/I/51mC+P7V6XL._SY300_SX300_QL70_FMwebp_.jpg', vram: '8GB', length: 225, tdp: 160 },
+      { name: 'GEFORCE RTX 4060', brand: 'GIGABYTE', price: 29000, imageURL: 'https://m.media-amazon.com/images/I/81sIB+hIqhL.jpg', vram: '8GB', length: 200, tdp: 115 },
+      { name: 'RADEON RX 7900 XTX NITRO+', brand: 'Sapphire', price: 105000, imageURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtLUnCbmWfGAW4fMKhg1dQF0xYuSkyC54gS8Ae0kMgvxjf32oUzGp4CHjV&s=10', vram: '24GB', length: 320, tdp: 420 },
+      { name: 'RADEON RX 7900 XTX', brand: 'XFX', price: 98000, imageURL: 'https://m.media-amazon.com/images/I/81il2WdPPJL.jpg', vram: '24GB', length: 287, tdp: 355 },
+      { name: 'RADEON RX 7900 XT', brand: 'PowerColor', price: 75000, imageURL: 'https://m.media-amazon.com/images/I/81AnvEdFSAL.jpg', vram: '20GB', length: 276, tdp: 315 },
+      { name: 'RADEON RX 7900 GRE', brand: 'ASRock', price: 54000, imageURL: 'https://m.media-amazon.com/images/I/61GRmsGfjcL.jpg', vram: '16GB', length: 269, tdp: 260 },
+      { name: 'RADEON RX 7800 XT', brand: 'Sapphire', price: 49000, imageURL: 'https://m.media-amazon.com/images/I/71WxRgfmlrL.jpg', vram: '16GB', length: 280, tdp: 263 },
+      { name: 'RADEON RX 7700 XT', brand: 'GIGABYTE', price: 42000, imageURL: 'https://m.media-amazon.com/images/I/61tneI9kg4L.jpg', vram: '12GB', length: 260, tdp: 245 },
+      { name: 'RADEON RX 7600', brand: 'MSI', price: 26000, imageURL: 'https://m.media-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T3/images/I/41N8uBHb0bL._SY300_SX300_QL70_FMwebp_.jpg', vram: '8GB', length: 210, tdp: 165 },
+      { name: 'ARC A770', brand: 'Intel', price: 28000, imageURL: 'https://m.media-amazon.com/images/I/71i24iuoCxL._UF1000,1000_QL80_.jpg', vram: '16GB', length: 268, tdp: 225 }
     ]);
 
 await PSU.create([
-      { name: 'DARK POWER PRO 13 1600W', brand: 'be quiet!', price: 38000, imageURL: 'https://m.media-amazon.com/images/I/71Xm5rG0VPL._AC_SL1500_.jpg', wattage: 1600, efficiencyRating: '80+ Titanium', formFactor: 'ATX 3.0' },
-      { name: 'HX1500i 1500W', brand: 'Corsair', price: 32000, imageURL: 'https://m.media-amazon.com/images/I/71x4-F2v-bL._AC_SL1500_.jpg', wattage: 1500, efficiencyRating: '80+ Platinum', formFactor: 'ATX 3.0' },
-      { name: 'VERTEX GX-1200 1200W', brand: 'Seasonic', price: 21000, imageURL: 'https://m.media-amazon.com/images/I/71YJ0vQ2m8L._AC_SL1500_.jpg', wattage: 1200, efficiencyRating: '80+ Gold', formFactor: 'ATX 3.0' },
-      { name: 'RM1000x SHIFT 1000W', brand: 'Corsair', price: 18500, imageURL: 'https://m.media-amazon.com/images/I/71wKj63WomL._AC_SL1500_.jpg', wattage: 1000, efficiencyRating: '80+ Gold', formFactor: 'ATX 3.0' },
-      { name: 'RM850x SHIFT 850W', brand: 'Corsair', price: 12500, imageURL: 'https://m.media-amazon.com/images/I/71wKj63WomL._AC_SL1500_.jpg', wattage: 850, efficiencyRating: '80+ Gold', formFactor: 'ATX 3.0' },
-      { name: 'FOCUS GX-850', brand: 'Seasonic', price: 11500, imageURL: 'https://m.media-amazon.com/images/I/71N0sQo1a+L._AC_SL1500_.jpg', wattage: 850, efficiencyRating: '80+ Gold', formFactor: 'ATX' },
-      { name: 'RM750e 750W', brand: 'Corsair', price: 9500, imageURL: 'https://m.media-amazon.com/images/I/71wKj63WomL._AC_SL1500_.jpg', wattage: 750, efficiencyRating: '80+ Gold', formFactor: 'ATX 3.0' },
-      { name: 'CX650M 650W', brand: 'Corsair', price: 6500, imageURL: 'https://m.media-amazon.com/images/I/71V2M9Wz4sL._AC_SL1500_.jpg', wattage: 650, efficiencyRating: '80+ Bronze', formFactor: 'ATX' }
+      { name: 'DARK POWER PRO 13 1600W', brand: 'be quiet!', price: 38000, imageURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREOC8KcpvZqGW_6mtzQwDfEcEbOHEyGGykbJ3XPW6jVw&s=10', wattage: 1600, efficiencyRating: '80+ Titanium', formFactor: 'ATX 3.0' },
+      { name: 'HX1500i 1500W', brand: 'Corsair', price: 32000, imageURL: 'https://m.media-amazon.com/images/I/71M8sh7La+L._AC_UF1000,1000_QL80_.jpg', wattage: 1500, efficiencyRating: '80+ Platinum', formFactor: 'ATX 3.0' },
+      { name: 'VERTEX GX-1200 1200W', brand: 'Seasonic', price: 21000, imageURL: 'https://m.media-amazon.com/images/I/51RxiwmprCL.jpg', wattage: 1200, efficiencyRating: '80+ Gold', formFactor: 'ATX 3.0' },
+      { name: 'RM1000x SHIFT 1000W', brand: 'Corsair', price: 18500, imageURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrm2YkbVJ1OjDZv9xb8U4drOVxgcwHpr2vE-ICq9BSPA&s=10', wattage: 1000, efficiencyRating: '80+ Gold', formFactor: 'ATX 3.0' },
+      { name: 'RM850x SHIFT 850W', brand: 'Corsair', price: 12500, imageURL: 'https://m.media-amazon.com/images/I/817XSYv70EL.jpg', wattage: 850, efficiencyRating: '80+ Gold', formFactor: 'ATX 3.0' },
+      { name: 'FOCUS GX-850', brand: 'Seasonic', price: 11500, imageURL: 'https://m.media-amazon.com/images/I/71i6bBc1H8L.jpg', wattage: 850, efficiencyRating: '80+ Gold', formFactor: 'ATX' },
+      { name: 'RM750e 750W', brand: 'Corsair', price: 9500, imageURL: 'https://m.media-amazon.com/images/I/81yMCss3P5L._AC_UF350,350_QL80_.jpg', wattage: 750, efficiencyRating: '80+ Gold', formFactor: 'ATX 3.0' },
+      { name: 'CX650M 650W', brand: 'Corsair', price: 6500, imageURL: 'https://m.media-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T3/images/I/414TgqB9rDL._SY300_SX300_QL70_FMwebp_.jpg', wattage: 650, efficiencyRating: '80+ Bronze', formFactor: 'ATX' }
     ]);
 
     // 5. Inject Phase 04: Infrastructure
 await Cooler.create([
-      { name: 'RYUJIN III 360 ARGB', brand: 'ASUS', price: 32000, imageURL: 'https://m.media-amazon.com/images/I/81N0sQo1a+L._AC_SL1500_.jpg', type: 'AIO Liquid', radiatorSize: 360 },
-      { name: 'KRAKEN ELITE 360 RGB', brand: 'NZXT', price: 28000, imageURL: 'https://m.media-amazon.com/images/I/71YJ0vQ2m8L._AC_SL1500_.jpg', type: 'AIO Liquid', radiatorSize: 360 },
-      { name: 'LIQMAXFLO 360', brand: 'Enermax', price: 14000, imageURL: 'https://m.media-amazon.com/images/I/71Xm5rG0VPL._AC_SL1500_.jpg', type: 'AIO Liquid', radiatorSize: 360 },
-      { name: 'KRAKEN 240', brand: 'NZXT', price: 13500, imageURL: 'https://m.media-amazon.com/images/I/71x4-F2v-bL._AC_SL1500_.jpg', type: 'AIO Liquid', radiatorSize: 240 },
-      { name: 'NH-D15 CHROMAX.BLACK', brand: 'Noctua', price: 10500, imageURL: 'https://m.media-amazon.com/images/I/81b0U3Kx22L._AC_SL1500_.jpg', type: 'Air Cooler', radiatorSize: null },
-      { name: 'DARK ROCK PRO 5', brand: 'be quiet!', price: 9500, imageURL: 'https://m.media-amazon.com/images/I/71V2M9Wz4sL._AC_SL1500_.jpg', type: 'Air Cooler', radiatorSize: null },
-      { name: 'AK620 ZERO DARK', brand: 'DeepCool', price: 6500, imageURL: 'https://m.media-amazon.com/images/I/71N0sQo1a+L._AC_SL1500_.jpg', type: 'Air Cooler', radiatorSize: null },
-      { name: 'PEERLESS ASSASSIN 120 SE', brand: 'Thermalright', price: 3500, imageURL: 'https://m.media-amazon.com/images/I/71wKj63WomL._AC_SL1500_.jpg', type: 'Air Cooler', radiatorSize: null }
+      { name: 'RYUJIN III 360 ARGB', brand: 'ASUS', price: 32000, imageURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJ4BhDvVABzXvTMv7--ocSZn1JceIgQO_XkcB1cPROjN2IkmCVWaR6MDQ&s=10', type: 'AIO Liquid', radiatorSize: 360 },
+      { name: 'KRAKEN ELITE 360 RGB', brand: 'NZXT', price: 28000, imageURL: 'https://m.media-amazon.com/images/I/41BrygKWyuL._AC_UF1000,1000_QL80_.jpg', type: 'AIO Liquid', radiatorSize: 360 },
+      { name: 'LIQMAXFLO 360', brand: 'Enermax', price: 14000, imageURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9tiet917C_86IPEYOh2f9xHgzW-uMujnRI62LtdMs7OwB-rAC7E-8Itu_&s=10', type: 'AIO Liquid', radiatorSize: 360 },
+      { name: 'KRAKEN 240', brand: 'NZXT', price: 13500, imageURL: 'https://m.media-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T3/images/I/31AbxevdkmL._SX342_SY445_QL70_FMwebp_.jpg', type: 'AIO Liquid', radiatorSize: 240 },
+      { name: 'NH-D15 CHROMAX.BLACK', brand: 'Noctua', price: 10500, imageURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpn76BR0XKk8SwRQ4SAZ8lryyNJiDh-NjT1BO0o91MEA&s=10', type: 'Air Cooler', radiatorSize: null },
+      { name: 'DARK ROCK PRO 5', brand: 'be quiet!', price: 9500, imageURL: 'https://m.media-amazon.com/images/I/71kNp+hhyEL._AC_UF1000,1000_QL80_.jpg', type: 'Air Cooler', radiatorSize: null },
+      { name: 'AK620 ZERO DARK', brand: 'DeepCool', price: 6500, imageURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUCkyzgRzUmJ9xW3FeHf880VM_ZhYQtHEVsVf40a6A2w&s', type: 'Air Cooler', radiatorSize: null },
+      { name: 'PEERLESS ASSASSIN 120 SE', brand: 'Thermalright', price: 3500, imageURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVJarzcYjurb_l8piymzMATiL4dd42x-_-5hMXsMexMw&s=10', type: 'Air Cooler', radiatorSize: null }
     ]);
 
 await Case.create([
-      { name: 'ODYSSEY X', brand: 'Lian Li', price: 45000, imageURL: 'https://m.media-amazon.com/images/I/71YJ0vQ2m8L._AC_SL1500_.jpg', formFactor: 'Full Tower', motherboardSupport: ['EEB', 'E-ATX', 'ATX'] },
-      { name: 'ROG HYPERION GR701', brand: 'ASUS', price: 38000, imageURL: 'https://m.media-amazon.com/images/I/81N0sQo1a+L._AC_SL1500_.jpg', formFactor: 'Full Tower', motherboardSupport: ['E-ATX', 'ATX', 'Micro-ATX'] },
-      { name: 'NV7', brand: 'Phanteks', price: 21000, imageURL: 'https://m.media-amazon.com/images/I/71Xm5rG0VPL._AC_SL1500_.jpg', formFactor: 'Full Tower', motherboardSupport: ['E-ATX', 'ATX', 'Micro-ATX'] },
-      { name: 'O11 DYNAMIC EVO XL', brand: 'Lian Li', price: 22000, imageURL: 'https://m.media-amazon.com/images/I/71x4-F2v-bL._AC_SL1500_.jpg', formFactor: 'Full Tower', motherboardSupport: ['E-ATX', 'ATX', 'Micro-ATX'] },
-      { name: 'O11 VISION', brand: 'Lian Li', price: 14500, imageURL: 'https://m.media-amazon.com/images/I/71wKj63WomL._AC_SL1500_.jpg', formFactor: 'Mid Tower', motherboardSupport: ['E-ATX', 'ATX', 'Micro-ATX'] },
-      { name: 'H9 FLOW', brand: 'NZXT', price: 15500, imageURL: 'https://m.media-amazon.com/images/I/71V2M9Wz4sL._AC_SL1500_.jpg', formFactor: 'Mid Tower', motherboardSupport: ['ATX', 'Micro-ATX', 'Mini-ITX'] },
-      { name: 'NORTH CHARCOAL BLACK', brand: 'Fractal Design', price: 13500, imageURL: 'https://m.media-amazon.com/images/I/81b0U3Kx22L._AC_SL1500_.jpg', formFactor: 'Mid Tower', motherboardSupport: ['ATX', 'Micro-ATX', 'Mini-ITX'] },
-      { name: '4000D AIRFLOW', brand: 'Corsair', price: 8500, imageURL: 'https://m.media-amazon.com/images/I/71wKj63WomL._AC_SL1500_.jpg', formFactor: 'Mid Tower', motherboardSupport: ['E-ATX', 'ATX', 'Micro-ATX'] },
-      { name: 'TERRA', brand: 'Fractal Design', price: 16500, imageURL: 'https://m.media-amazon.com/images/I/71x4-F2v-bL._AC_SL1500_.jpg', formFactor: 'Small Form Factor', motherboardSupport: ['Mini-ITX'] }
+      { name: 'ODYSSEY X', brand: 'Lian Li', price: 45000, imageURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8dmOdBeS5PvE1aH-50M1GhdXWEFEnU8n3zDGO0bRSBw&s=10', formFactor: 'Full Tower', motherboardSupport: ['EEB', 'E-ATX', 'ATX'] },
+      { name: 'ROG HYPERION GR701', brand: 'ASUS', price: 38000, imageURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAWpKZ_KTkT5w-hXmzDEgNEQyeVLDXlYRklc6gjSCJ9Q&s=10', formFactor: 'Full Tower', motherboardSupport: ['E-ATX', 'ATX', 'Micro-ATX'] },
+      { name: 'NV7', brand: 'Phanteks', price: 21000, imageURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqX11P1hJ9wcgfuc2f5TPBI7sNeXRQgM09G6-4lXP3dw&s=10', formFactor: 'Full Tower', motherboardSupport: ['E-ATX', 'ATX', 'Micro-ATX'] },
+      { name: 'O11 DYNAMIC EVO XL', brand: 'Lian Li', price: 22000, imageURL: 'https://m.media-amazon.com/images/I/616CBydzeKL._AC_UF1000,1000_QL80_.jpg', formFactor: 'Full Tower', motherboardSupport: ['E-ATX', 'ATX', 'Micro-ATX'] },
+      { name: 'O11 VISION', brand: 'Lian Li', price: 14500, imageURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS533ImhRfbVntvgbRhvcGbrJi6nTUcEgLlbT5_iGaF9F5NRWppGNTtAus&s=10', formFactor: 'Mid Tower', motherboardSupport: ['E-ATX', 'ATX', 'Micro-ATX'] },
+      { name: 'H9 FLOW', brand: 'NZXT', price: 15500, imageURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoI3GahuHvfb8EZvg8EeV67Z9ff6LVxFUPt_CwGM_FrwK_Jz8B_SiH0aY&s=10', formFactor: 'Mid Tower', motherboardSupport: ['ATX', 'Micro-ATX', 'Mini-ITX'] },
+      { name: 'NORTH CHARCOAL BLACK', brand: 'Fractal Design', price: 13500, imageURL: 'https://m.media-amazon.com/images/I/71IyDaBF8RL.jpg', formFactor: 'Mid Tower', motherboardSupport: ['ATX', 'Micro-ATX', 'Mini-ITX'] },
+      { name: '4000D AIRFLOW', brand: 'Corsair', price: 8500, imageURL: 'https://m.media-amazon.com/images/I/61-u3G8Bg9L._AC_UF1000,1000_QL80_.jpg', formFactor: 'Mid Tower', motherboardSupport: ['E-ATX', 'ATX', 'Micro-ATX'] },
+      { name: 'TERRA', brand: 'Fractal Design', price: 16500, imageURL: 'https://m.media-amazon.com/images/I/612OAEZ3unL._AC_UF1000,1000_QL80_.jpg', formFactor: 'Small Form Factor', motherboardSupport: ['Mini-ITX'] }
     ]);
 
     res.status(201).json({ message: 'ARMORY FULLY STOCKED. ALL DATABANKS ONLINE.' });

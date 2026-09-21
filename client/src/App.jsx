@@ -10,7 +10,7 @@ import BuildSpace from './pages/BuildSpace.jsx';
 import SelectionPage from './pages/SelectionPage.jsx';
 
 import ProductDetailsPage from './pages/ProductDetailsPage';
-
+import FinalSummary from './pages/FinalSummary.jsx';
 export default function App() {
   const [build, setBuild] = useState({});
   
@@ -22,9 +22,10 @@ export default function App() {
     <BrowserRouter>
       <Layout build={build} progress={progress} totalPrice={totalPrice} totalWattage={totalWattage}>
         <Routes>
-          <Route path="/" element={<BuildSpace build={build} />} />
+         <Route path="/" element={<BuildSpace build={build} setBuild={setBuild} />} />
           <Route path="/select/:category" element={<SelectionPage setBuild={setBuild} />} />
           <Route path="/details/:category/:id" element={<ProductDetailsPage setBuild={setBuild} />} />
+          <Route path="/summary" element={<FinalSummary build={build} totalPrice={totalPrice} totalWattage={totalWattage} />} />
         </Routes>
       </Layout>
     </BrowserRouter>
