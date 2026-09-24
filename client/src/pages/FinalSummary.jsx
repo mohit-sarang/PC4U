@@ -99,7 +99,7 @@ export default function FinalSummary({ build, totalPrice, totalWattage }) {
 
         <button 
           onClick={handlePrint}
-          className="bg-brutalWhite text-brutalBlack font-black text-xl uppercase tracking-tighter px-10 py-4 hover:bg-gray-300 transition-colors"
+          className="bg-black text-brutalBlack font-black text-xl uppercase tracking-tighter px-10 py-4 hover:bg-gray-300 transition-colors"
         >
           [ EXPORT TO PDF ]
         </button>

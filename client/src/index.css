@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply bg-brutalBlack text-brutalWhite font-sans antialiased overflow-x-hidden;
+    @apply bg-white text-black  font-sans antialiased overflow-x-hidden;
   }
 
   /* Hide scrollbar for that clean, app-like navigation */
