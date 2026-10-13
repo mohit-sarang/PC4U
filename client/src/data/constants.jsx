@@ -1,12 +1,12 @@
 export const BUILD_SLOTS = [
-  { id: 'cpu', name: 'PROCESSOR', phase: 'PHASE 01 / PLATFORM' },
+  { id: 'cpu', name: 'PROCESSOR' },
   { id: 'mobo', name: 'MOTHERBOARD' },
-  { id: 'ram', name: 'MEMORY', phase: 'PHASE 02 / MEMORY & STORAGE' },
+  { id: 'ram', name: 'MEMORY' },
   { id: 'storage', name: 'STORAGE' },
-  { id: 'gpu', name: 'GRAPHICS CARD', phase: 'PHASE 03 / GPU & POWER' },
+  { id: 'gpu', name: 'GRAPHICS CARD' },
   { id: 'psu', name: 'POWER SUPPLY' },
-  { id: 'cooler', name: 'COOLING', phase: 'PHASE 04 / INFRASTRUCTURE' },
   { id: 'case', name: 'CASE' },
+  { id: 'cooler', name: 'COOLING' },
 ];
 
 export const MOCK_DB = {

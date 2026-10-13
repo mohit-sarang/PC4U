@@ -4,16 +4,100 @@
 
 @layer base {
   body {
-    @apply bg-white text-black  font-sans antialiased overflow-x-hidden;
+    @apply bg-white text-black font-sans antialiased overflow-x-hidden;
   }
 
   /* Hide scrollbar for that clean, app-like navigation */
   ::-webkit-scrollbar {
     display: none;
   }
-  
+
   * {
-    -ms-overflow-style: none; 
-    scrollbar-width: none; 
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Universal smooth, interactive feel for all buttons & clickable controls */
+  button,
+  [role="button"],
+  input[type="button"],
+  input[type="submit"],
+  input[type="reset"] {
+    cursor: pointer;
+    user-select: none;
+    touch-action: manipulation;
+    transition:
+      transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+      background-color 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+      color 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+      border-color 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+      box-shadow 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+      opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Universal tactile press feel */
+  button:active:not(:disabled),
+  [role="button"]:active:not([aria-disabled="true"]),
+  input[type="button"]:active:not(:disabled),
+  input[type="submit"]:active:not(:disabled) {
+    transform: scale(0.97);
+    transition-duration: 0.08s;
+  }
+
+  /* Disabled state clean reset */
+  button:disabled,
+  [role="button"][aria-disabled="true"] {
+    cursor: not-allowed;
+    pointer-events: none;
+    transform: none !important;
+    box-shadow: none !important;
+  }
+
+  /* Focus ring for accessibility */
+  button:focus-visible,
+  [role="button"]:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 3px;
+  }
+}
+
+@layer components {
+
+  /* High-impact Brutalist Interactive Buttons */
+  .btn-brutal {
+    @apply relative font-black uppercase tracking-tighter border-2 border-black cursor-pointer select-none inline-flex items-center justify-center;
+    transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+      box-shadow 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+      background-color 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+      color 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+      border-color 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .btn-brutal:hover:not(:disabled) {
+    transform: translate(-3px, -3px);
+    box-shadow: 5px 5px 0px 0px #000;
+  }
+
+  .btn-brutal:active:not(:disabled) {
+    transform: translate(0px, 0px);
+    box-shadow: 1px 1px 0px 0px #000;
+    transition-duration: 0.08s;
+  }
+
+  /* Interactive subtle hover for text buttons & links */
+  .btn-text-interactive {
+    @apply cursor-pointer select-none inline-flex items-center;
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+      color 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+      opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .btn-text-interactive:hover:not(:disabled) {
+    transform: translateY(-1.5px);
+  }
+
+  .btn-text-interactive:active:not(:disabled) {
+    transform: translateY(0px) scale(0.96);
+    transition-duration: 0.08s;
   }
 }

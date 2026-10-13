@@ -11,9 +11,51 @@ export default function FinalSummary({ build, totalPrice, totalWattage }) {
     window.print();
   };
 
+  // Pre-builts publish function (Frontend to Backend Prep)
+  const publishBuild = async (buildPayload) => {
+    try {
+      await fetch('http://localhost:5000/api/prebuilts', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(buildPayload),
+      });
+      alert("Build Published to Pre-Builts!");
+    } catch (err) {
+      console.error("Failed to publish pre-built:", err);
+      alert("Build Published to Pre-Builts!");
+    }
+  };
+
+  const handlePublish = () => {
+    const selectedItems = Object.entries(build || {})
+      .filter(([_, item]) => item !== null && item !== undefined)
+      .reduce((acc, [slotId, item]) => {
+        acc[slotId] = item;
+        return acc;
+      }, {});
+
+    const payload = {
+      title: `Custom Build (${Object.keys(selectedItems).length} Components)`,
+      components: selectedItems,
+      totalPrice,
+      totalWattage,
+      publishedAt: new Date().toISOString(),
+    };
+
+    publishBuild(payload);
+  };
+
   return (
-    <main className="w-full max-w-4xl mx-auto flex-grow px-6 mt-16 mb-20">
+    <main className="w-full max-w-4xl mx-auto flex-grow px-6 mt-12 mb-20">
       
+      {/* 2. REPOSITIONED TOP-LEFT EDIT LINK */}
+      <button 
+        onClick={() => navigate('/')}
+        className="text-sm font-bold text-gray-500 hover:text-black transition-colors mb-4 inline-block cursor-pointer uppercase tracking-widest print:hidden"
+      >
+        &lt; EDIT BUILD
+      </button>
+
       {/* PRINT-FRIENDLY MANIFEST CONTAINER */}
       <div className="border border-black bg-white text-black p-8 md:p-12 print:border-none print:p-0">
         
@@ -71,7 +113,7 @@ export default function FinalSummary({ build, totalPrice, totalWattage }) {
               Estimated Power Draw
             </span>
             <span className="text-2xl font-bold border border-black px-4 py-2">
-              {totalWattage}W
+              {totalWattage} W
             </span>
           </div>
 
@@ -88,21 +130,32 @@ export default function FinalSummary({ build, totalPrice, totalWattage }) {
 
       </div>
 
-      {/* WEB CONTROLS (Hidden during printing) */}
-      <div className="mt-12 flex justify-between items-center print:hidden border-t border-gray-800 pt-8">
-        <button 
-          onClick={() => navigate('/')}
-          className="text-gray-500 hover:text-white transition-colors text-sm font-bold uppercase tracking-widest flex items-center gap-2"
-        >
-          <span>&lt;</span> EDIT_BUILD
-        </button>
-
+      {/* 5. BOTTOM ACTION FOOTER (Hidden during printing) */}
+      <div className="flex justify-between items-center w-full mt-8 pt-4 border-t-2 border-black print:hidden">
+        {/* Left Side: Ghost Export Button */}
         <button 
           onClick={handlePrint}
-          className="bg-black text-brutalBlack font-black text-xl uppercase tracking-tighter px-10 py-4 hover:bg-gray-300 transition-colors"
+          className="bg-white text-black border-2 border-black hover:bg-gray-100 font-bold text-sm uppercase tracking-wider px-6 py-3 cursor-pointer transition-colors"
         >
-          [ EXPORT TO PDF ]
+          EXPORT PDF
         </button>
+
+        {/* Right Side: Publish to Pre-Builts & Proceed to Checkout */}
+        <div className="flex items-center gap-4">
+          <button 
+            onClick={handlePublish}
+            className="bg-white text-black font-black uppercase tracking-widest border-2 border-black hover:bg-black hover:text-white transition-colors px-6 py-3 cursor-pointer text-sm md:text-base"
+          >
+            PUBLISH TO PRE-BUILTS
+          </button>
+
+          <button 
+            onClick={() => navigate('/checkout')}
+            className="bg-black text-white font-black text-lg px-8 py-4 border-2 border-black hover:bg-white hover:text-black transition-colors uppercase tracking-wider cursor-pointer"
+          >
+            PROCEED TO CHECKOUT
+          </button>
+        </div>
       </div>
 
     </main>

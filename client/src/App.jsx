@@ -8,11 +8,13 @@ import { BUILD_SLOTS } from './data/constants.jsx';
 import Layout from './components/Layout.jsx';
 import BuildSpace from './pages/BuildSpace.jsx';
 import SelectionPage from './pages/SelectionPage.jsx';
-
 import ProductDetailsPage from './pages/ProductDetailsPage';
 import FinalSummary from './pages/FinalSummary.jsx';
+import CheckoutPage from './pages/CheckoutPage.jsx';
+
 export default function App() {
   const [build, setBuild] = useState({});
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
   
   const progress = Math.round((Object.keys(build).length / BUILD_SLOTS.length) * 100);
   const totalPrice = Object.values(build).reduce((sum, item) => sum + (item.price || 0), 0);
@@ -20,12 +22,15 @@ export default function App() {
 
   return (
     <BrowserRouter>
-      <Layout build={build} progress={progress} totalPrice={totalPrice} totalWattage={totalWattage}>
+      <Layout build={build} progress={progress} totalPrice={totalPrice} totalWattage={totalWattage} isFilterOpen={isFilterOpen}>
         <Routes>
-         <Route path="/" element={<BuildSpace build={build} setBuild={setBuild} />} />
-          <Route path="/select/:category" element={<SelectionPage setBuild={setBuild} />} />
-          <Route path="/details/:category/:id" element={<ProductDetailsPage setBuild={setBuild} />} />
+          <Route path="/" element={<BuildSpace build={build} setBuild={setBuild} />} />
+          <Route path="/select/:category" element={<SelectionPage setBuild={setBuild} isFilterOpen={isFilterOpen} setIsFilterOpen={setIsFilterOpen} />} />
+          <Route path="/product/:id" element={<ProductDetailsPage build={build} setBuild={setBuild} />} />
+          <Route path="/details/:category/:id" element={<ProductDetailsPage build={build} setBuild={setBuild} />} />
           <Route path="/summary" element={<FinalSummary build={build} totalPrice={totalPrice} totalWattage={totalWattage} />} />
+          <Route path="/cart" element={<FinalSummary build={build} totalPrice={totalPrice} totalWattage={totalWattage} />} />
+          <Route path="/checkout" element={<CheckoutPage build={build} totalPrice={totalPrice} />} />
         </Routes>
       </Layout>
     </BrowserRouter>
